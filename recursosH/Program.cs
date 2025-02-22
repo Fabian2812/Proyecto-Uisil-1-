@@ -4,6 +4,7 @@ namespace recursosH
 {
     internal static class Program
     {
+        ///a
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
