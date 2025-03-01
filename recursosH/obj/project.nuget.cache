@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BM04Pk2lyH4=",
+  "dgSpecHash": "Q0lWuTDSvTc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\fabia\\source\\repos\\recursosH\\recursosH\\recursosH.csproj",
+  "projectFilePath": "C:\\Users\\fabia\\OneDrive\\Escritorio\\Github\\Programacion#2(uisil)\\Primer Proyecto\\Proyecto-Uisil-1-\\recursosH\\recursosH.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\fabia\\.nuget\\packages\\bouncycastle.cryptography\\2.4.0\\bouncycastle.cryptography.2.4.0.nupkg.sha512",
     "C:\\Users\\fabia\\.nuget\\packages\\fontawesome.sharp\\6.6.0\\fontawesome.sharp.6.6.0.nupkg.sha512",
