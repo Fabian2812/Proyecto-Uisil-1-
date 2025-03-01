@@ -109,11 +109,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fabia\\source\\repos\\recursosH\\recursosH\\recursosH.csproj",
+      "projectUniqueName": "C:\\Users\\fabia\\OneDrive\\Escritorio\\Github\\Programacion#2(uisil)\\Primer Proyecto\\Proyecto-Uisil-1-\\recursosH\\recursosH.csproj",
       "projectName": "recursosH",
-      "projectPath": "C:\\Users\\fabia\\source\\repos\\recursosH\\recursosH\\recursosH.csproj",
+      "projectPath": "C:\\Users\\fabia\\OneDrive\\Escritorio\\Github\\Programacion#2(uisil)\\Primer Proyecto\\Proyecto-Uisil-1-\\recursosH\\recursosH.csproj",
       "packagesPath": "C:\\Users\\fabia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fabia\\source\\repos\\recursosH\\recursosH\\obj\\",
+      "outputPath": "C:\\Users\\fabia\\OneDrive\\Escritorio\\Github\\Programacion#2(uisil)\\Primer Proyecto\\Proyecto-Uisil-1-\\recursosH\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
