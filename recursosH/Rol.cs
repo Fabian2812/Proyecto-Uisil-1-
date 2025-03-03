@@ -3,21 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
+using System.Text.Json.Serialization;
 namespace recursosH
 {
-    public class Rol 
+    public class Rol : BaseID
     {
-        public byte Id_Rol { get; set; }
-        private string Nombre_Rol { get; set; }
-
+        [JsonPropertyName("nombre_rol")]
+        public string Nombre_Rol { get; set; }
+        [JsonPropertyName("permisos")]
+        public List<string> Permisos { get; set; }
+        // Constructor vacío requerido para la serialización
         public Rol() { }
-
-        public Rol(byte id_Entidad, byte id_Rol, string nombre_Rol) : base()
+        // Constructor con validaciones y asignación automática de permisos
+        public Rol(int id, string nombre_rol)
         {
-            this.Id_Rol = id_Rol;
-            this.Nombre_Rol = nombre_Rol;
-        }
+            if (!Validaciones.ValidarRol(nombre_rol))
+            {
+                MessageBox.Show($"Nombre de rol no válido. Los roles permitidos son: {string.Join(", ", Validaciones.RolesPermitidos)}");
+                return; // Detiene la ejecución si el rol no es válido
+            }
+            // Asigna el nombre del rol
+            this.Id = id;
+            this.Nombre_Rol = nombre_rol;
+            // Asigna los permisos correspondientes al rol
+            this.Permisos = Validaciones.ObtenerPermisosPorRol(nombre_rol);
 
+            MessageBox.Show("Rol creado exitosamente.");
+        }
     }
 }

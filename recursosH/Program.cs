@@ -1,5 +1,12 @@
 using recursosH.vista;
-
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
+using System.Text.Json.Serialization;
 namespace recursosH
 {
     internal static class Program
@@ -15,6 +22,8 @@ namespace recursosH
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new Login());
+            DataInitializer.InitializeData();
+
         }
     }
 }
