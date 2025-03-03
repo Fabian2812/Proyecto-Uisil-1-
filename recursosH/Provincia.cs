@@ -3,19 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
+using System.Text.Json.Serialization;
 namespace recursosH
 {
-    public class Provincia
+    public class Provincia : BaseID
     {
-        public byte Id_Provincia { get; set; }
-        private string Nombre_Provincia { get; set; }
+        [JsonPropertyName("nombre_provincia")]
+        public string Nombre_Provincia { get; set; }
+        public Provincia() { }
 
-        public Provincia () { }
-        public Provincia(byte id_Provincia, string nombre_Provincia)
+        public Provincia(int id_Provincia, string nombre_provincia) : base(id_Provincia)
         {
-            this.Id_Provincia = id_Provincia;
-            this.Nombre_Provincia = nombre_Provincia;
+            if (Validaciones.ValidarNombre(nombre_provincia))
+            {
+                MessageBox.Show("Nombre no valido");
+                return;
+            }
+            this.Nombre_Provincia = nombre_provincia;
+        }
+        public override string ToString()
+        {
+            return $"Provincia:{Id} - {Nombre_Provincia}";
         }
     }
 }
