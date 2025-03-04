@@ -15,14 +15,17 @@ namespace recursosH
 
         public static void InitializeData()
         {
+            // Mostrar la ruta del archivo JSON
+            MessageBox.Show($"Ruta del archivo JSON: {Path.GetFullPath(dataFilePath)}");
+
             if (!File.Exists(dataFilePath))
             {
                 var data = new
                 {
                     Usuarios = new List<Usuario>
                     {
-                        new Usuario(1, "admin", "Apellido1", "Apellido2", "admin@example.com", "admin123", 2,1),
-                        new Usuario(2, "usuario", "Apellido1", "Apellido2","usuario@example.com","usuario123",1,2)
+                        new Usuario(1, "admin", "Apellido1", "Apellido2", "admin@example.com", "admin123", 2, 1),
+                        new Usuario(2, "usuario", "Apellido1", "Apellido2", "usuario@example.com", "usuario123", 1, 2)
                     },
                     Roles = new List<Rol>
                     {
@@ -33,7 +36,7 @@ namespace recursosH
                     Entidades = new List<Entidad>
                     {
                         new Entidad(1, "123456789", "Entidad1", "entidad1@example.com", 12345678, "Direccion1", "Descripcion1"),
-                        new Entidad(2, "987654321", "Entidad2","entidad1@example.com",123456789, "Direccion2", "Descripcion2")
+                        new Entidad(2, "987654321", "Entidad2", "entidad2@example.com", 123456789, "Direccion2", "Descripcion2")
                     },
                     Nacientes = new List<Naciente>
                     {
@@ -59,6 +62,14 @@ namespace recursosH
 
                 string jsonData = JsonSerializer.Serialize(data);
                 File.WriteAllText(dataFilePath, jsonData);
+
+                // Mensaje de depuración
+                MessageBox.Show("Archivo JSON creado exitosamente.");
+            }
+            else
+            {
+                // Mensaje de depuración
+                MessageBox.Show("El archivo JSON ya existe. No se necesita inicialización.");
             }
         }
 
@@ -66,10 +77,18 @@ namespace recursosH
         {
             if (File.Exists(dataFilePath))
             {
+                // Mensaje de depuración
+                MessageBox.Show("Archivo JSON encontrado. Cargando datos...");
+
                 string jsonData = File.ReadAllText(dataFilePath);
                 return JsonSerializer.Deserialize<Dictionary<string, object>>(jsonData);
             }
-            return null; // Retorna null si el archivo no existe
+            else
+            {
+                // Mensaje de depuración
+                MessageBox.Show("Archivo JSON no encontrado.");
+                return null; // Retorna null si el archivo no existe
+            }
         }
 
         public static void VerificarYCargarJson()
@@ -77,12 +96,14 @@ namespace recursosH
             var datos = CargarJsonSiExiste();
             if (datos != null)
             {
-                Console.WriteLine("JSON cargado exitosamente.");
+                // Mensaje de depuración
+                MessageBox.Show("JSON cargado exitosamente.");
                 // Aquí puedes trabajar con los datos cargados
             }
             else
             {
-                Console.WriteLine("El archivo JSON no existe. Se debe inicializar primero.");
+                // Mensaje de depuración
+                MessageBox.Show("El archivo JSON no existe. Se debe inicializar primero.");
                 InitializeData(); // Inicializa el JSON si no existe
             }
         }
@@ -100,6 +121,9 @@ namespace recursosH
             allData[key] = data;
             string jsonData = JsonSerializer.Serialize(allData);
             File.WriteAllText(dataFilePath, jsonData);
+
+            // Mensaje de depuración
+            MessageBox.Show("Datos guardados exitosamente en el archivo JSON.");
         }
     }
 }
