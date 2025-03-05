@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using System.Text.Json.Serialization;
 namespace recursosH
 {
-    public class MedicionalDeCaudal : BaseID
+    public class MedicionDeCaudal : BaseID
     {
         [JsonPropertyName("capacidad")]
         public int Capacidad { get; set; }
@@ -18,16 +18,18 @@ namespace recursosH
         public string Observacione { get; set; }
         [JsonPropertyName("fecha")]
         public DateTime Fecha { get; set; }
+        [JsonPropertyName("clima")]
+        public string Clima { get; set; }
         [JsonPropertyName("realizado")]
         public string Realizado { get; set; }
         [JsonPropertyName("id_naciente")]
         public int Id_Naciente { get; set; }
         [JsonPropertyName("id_sitioDeMuestreo")]
         public int Id_SitioDeMuestreo { get; set; }
-        public MedicionalDeCaudal() { }
-        public MedicionalDeCaudal(int id_MedicionDeCaudal,int capacidad, string metodo, string observacione, DateTime fecha, string realizado, int id_naciente, int id_sitioDeMuestreo) : base(id_MedicionDeCaudal)
+        public MedicionDeCaudal() { }
+        public MedicionDeCaudal (int id, int capacidad, string metodo, string observacione, DateTime fecha, string clima, string realizado, int id_naciente, int id_sitioDeMuestreo) : base(id)
         {
-            if (Validaciones.ValidarEntero(capacidad))
+            if (Validaciones.ValidarId(capacidad))
             {
                 MessageBox.Show("Capacidad no valida");
                 return;
@@ -42,9 +44,9 @@ namespace recursosH
                 MessageBox.Show("Observacion no valida");
                 return;
             }
-            if (Validaciones.ValidarFecha(fecha))
+            if (Validaciones.ValidarNombre(clima))
             {
-                MessageBox.Show("Fecha no valida");
+                MessageBox.Show("Clima no valido");
                 return;
             }
             if (Validaciones.ValidarNombre(realizado))
@@ -66,13 +68,14 @@ namespace recursosH
             this.Metodo = metodo;
             this.Observacione = observacione;
             this.Fecha = fecha;
+            this.Clima = clima;
             this.Realizado = realizado;
             this.Id_Naciente = id_naciente;
             this.Id_SitioDeMuestreo = id_sitioDeMuestreo;
         }
         public override string ToString()
         {
-            return $"Medicion de caudal:{Id} - {Capacidad}, Metodo: {Metodo}, Observacion: {Observacione}, Fecha: {Fecha}, Realizado: {Realizado}, Naciente: {Id_Naciente}, Sitio de muestreo: {Id_SitioDeMuestreo}";
+            return $"Medicion de caudal:{Id} - {Capacidad}, Metodo: {Metodo}, Observacion: {Observacione}, Fecha: {Fecha}, Clima: {Clima}, Realizado: {Realizado}, Naciente: {Id_Naciente}, Sitio de muestreo: {Id_SitioDeMuestreo}";
         }
     }
 }
