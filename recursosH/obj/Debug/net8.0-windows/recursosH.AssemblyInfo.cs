@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("recursosH")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ee26150483ede8fd5f99eb61ff9cd37e5c60bef8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cd44a1b01da6672d9d112f6d1fb9f2bde75aab4a")]
 [assembly: System.Reflection.AssemblyProductAttribute("recursosH")]
 [assembly: System.Reflection.AssemblyTitleAttribute("recursosH")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
