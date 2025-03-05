@@ -15,9 +15,9 @@ namespace recursosH
 
         public static void InitializeData()
         {
+
             // Mostrar la ruta del archivo JSON
             MessageBox.Show($"Ruta del archivo JSON: {Path.GetFullPath(dataFilePath)}");
-
             if (!File.Exists(dataFilePath))
             {
                 var data = new
@@ -58,7 +58,6 @@ namespace recursosH
 
                 string jsonData = JsonSerializer.Serialize(data);
                 File.WriteAllText(dataFilePath, jsonData);
-
                 // Mensaje de depuración
                 MessageBox.Show("Archivo JSON creado exitosamente.");
             }
@@ -75,7 +74,6 @@ namespace recursosH
             {
                 // Mensaje de depuración
                 MessageBox.Show("Archivo JSON encontrado. Cargando datos...");
-
                 string jsonData = File.ReadAllText(dataFilePath);
                 return JsonSerializer.Deserialize<Dictionary<string, object>>(jsonData);
             }
@@ -85,6 +83,10 @@ namespace recursosH
                 MessageBox.Show("Archivo JSON no encontrado.");
                 return null; // Retorna null si el archivo no existe
             }
+                string jsonData = File.ReadAllText(dataFilePath);
+                return JsonSerializer.Deserialize<Dictionary<string, object>>(jsonData);
+            }
+            return null; // Retorna null si el archivo no existe
         }
 
         public static void VerificarYCargarJson()
@@ -94,7 +96,6 @@ namespace recursosH
             {
                 // Mensaje de depuración
                 MessageBox.Show("JSON cargado exitosamente.");
-                // Aquí puedes trabajar con los datos cargados
             }
             else
             {
@@ -116,7 +117,6 @@ namespace recursosH
             allData[key] = data;
             string jsonData = JsonSerializer.Serialize(allData);
             File.WriteAllText(dataFilePath, jsonData);
-
             // Mensaje de depuración
             MessageBox.Show("Datos guardados exitosamente en el archivo JSON.");
         }
