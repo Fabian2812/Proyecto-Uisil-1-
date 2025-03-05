@@ -15,37 +15,37 @@ namespace recursosH.vista.Barra_de_navegacion
         public GestiónUsuarios()
         {
             InitializeComponent();
-            txtCorreoU.Text = "Example@correo.com";
-            txtCorreoU.ForeColor = Color.Gray;
-            txtCorreoU.Click += txtCorreoU_Click;
-            txtCorreoU.Leave += txtCorreoU_Leave;
+            txtCorreoUsuario.Text = "Example@correo.com";
+            txtCorreoUsuario.ForeColor = Color.Gray;
+            txtCorreoUsuario.Click += txtCorreoU_Click;
+            txtCorreoUsuario.Leave += txtCorreoU_Leave;
 
-            txtNombreU.Text = "Tomas Turbado";
-            txtNombreU.ForeColor = Color.Gray;
-            txtNombreU.Click += txtNombreU_Click;
-            txtNombreU.Leave += txtNombreU_Leave;
+            txtNombreUsuario.Text = "Tomas Turbado";
+            txtNombreUsuario.ForeColor = Color.Gray;
+            txtNombreUsuario.Click += txtNombreU_Click;
+            txtNombreUsuario.Leave += txtNombreU_Leave;
 
-            txtPasswordU.Text = "Ingresa tu contraseña ";
-            txtPasswordU.ForeColor = Color.Gray;
-            txtPasswordU.Click += txtPasswordU_Click;
-            txtPasswordU.Leave += txtPasswordU_Leave;
-            txtPasswordU.PasswordChar = '\0';
+            txtPasswordUsuario.Text = "Ingresa tu contraseña ";
+            txtPasswordUsuario.ForeColor = Color.Gray;
+            txtPasswordUsuario.Click += txtPasswordU_Click;
+            txtPasswordUsuario.Leave += txtPasswordU_Leave;
+            txtPasswordUsuario.PasswordChar = '\0';
 
 
         }
         private void txtCorreoU_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtCorreoU.Text))
+            if (string.IsNullOrEmpty(txtCorreoUsuario.Text))
             {
-                txtCorreoU.Text = "Example@correo.com";
-                txtCorreoU.ForeColor = Color.Gray;
+                txtCorreoUsuario.Text = "Example@correo.com";
+                txtCorreoUsuario.ForeColor = Color.Gray;
             }
         }
         private void txtCorreoU_Click(object sender, EventArgs e)
         {
             {
-                txtCorreoU.Text = "";
-                txtCorreoU.ForeColor = Color.Black;
+                txtCorreoUsuario.Text = "";
+                txtCorreoUsuario.ForeColor = Color.Black;
             }
 
         }
@@ -61,16 +61,16 @@ namespace recursosH.vista.Barra_de_navegacion
         private void txtNombreU_Click(object sender, EventArgs e)
         {
             {
-                txtNombreU.Text = "";
-                txtNombreU.ForeColor = Color.Black;
+                txtNombreUsuario.Text = "";
+                txtNombreUsuario.ForeColor = Color.Black;
             }
         }
         private void txtNombreU_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtNombreU.Text))
+            if (string.IsNullOrEmpty(txtNombreUsuario.Text))
             {
-                txtNombreU.Text = "Tomas Turbado";
-                txtNombreU.ForeColor = Color.Gray;
+                txtNombreUsuario.Text = "Tomas Turbado";
+                txtNombreUsuario.ForeColor = Color.Gray;
             }
         }
 
@@ -81,19 +81,19 @@ namespace recursosH.vista.Barra_de_navegacion
         private void txtPasswordU_Click(object sender, EventArgs e)
         {
             {
-                txtPasswordU.Text = "";
-                txtPasswordU.ForeColor = Color.Black;
-                txtPasswordU.PasswordChar = '*';
+                txtPasswordUsuario.Text = "";
+                txtPasswordUsuario.ForeColor = Color.Black;
+                txtPasswordUsuario.PasswordChar = '*';
 
             }
         }
         private void txtPasswordU_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtPasswordU.Text))
+            if (string.IsNullOrEmpty(txtPasswordUsuario.Text))
             {
-                txtPasswordU.Text = "Ingrese su contraseña";
-                txtPasswordU.PasswordChar = '\0';
-                txtPasswordU.ForeColor = Color.Gray;
+                txtPasswordUsuario.Text = "Ingrese su contraseña";
+                txtPasswordUsuario.PasswordChar = '\0';
+                txtPasswordUsuario.ForeColor = Color.Gray;
 
             }
         }
@@ -102,5 +102,37 @@ namespace recursosH.vista.Barra_de_navegacion
         {
 
         }
+
+        private void bntBuscarU_Click(object sender, EventArgs e)
+        {
+            private void CargarDatosUsuario(int idUsuario)
+        {
+            // Cargar la lista de usuarios desde el JSON
+            var usuarios = DataInitializer.LoadData<List<Usuario>>("Usuarios");
+
+            // Buscar el usuario por ID
+            var usuario = usuarios.FirstOrDefault(u => u.Id == idUsuario);
+
+            if (usuario != null)
+            {
+                // Cargar los datos del usuario en los campos del formulario
+                txtId.Text = usuario.Id.ToString();
+                txtNombre.Text = usuario.Nombre_Usuario;
+                txtPrimerApellido.Text = usuario.PrimerApellido;
+                txtSegundoApellido.Text = usuario.SegundoApellido;
+                txtCorreo.Text = usuario.Correo;
+                txtContrasena.Text = usuario.Contrasena;
+                cmbRoles.SelectedValue = usuario.Id_Rol;
+                txtIdEntidad.Text = usuario.Id_Entidad.ToString();
+
+                // Bloquear el campo de ID
+                txtId.Enabled = false; // El ID no se puede editar
+            }
+            else
+            {
+                MessageBox.Show("El usuario no existe.");
+            }
+        }
+    }
     }
 }

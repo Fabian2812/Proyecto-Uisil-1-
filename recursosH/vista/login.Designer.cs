@@ -139,9 +139,9 @@
             label2.AutoSize = true;
             label2.Location = new Point(183, 69);
             label2.Name = "label2";
-            label2.Size = new Size(48, 15);
+            label2.Size = new Size(43, 15);
             label2.TabIndex = 0;
-            label2.Text = "ID USER";
+            label2.Text = "Correo";
             // 
             // Login
             // 
