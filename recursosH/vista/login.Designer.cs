@@ -35,7 +35,7 @@
             groupBox2 = new GroupBox();
             button1 = new Button();
             txtContraseña = new TextBox();
-            txtId = new TextBox();
+            txtIngreso = new TextBox();
             label3 = new Label();
             label2 = new Label();
             panel1.SuspendLayout();
@@ -83,7 +83,7 @@
             // 
             groupBox2.Controls.Add(button1);
             groupBox2.Controls.Add(txtContraseña);
-            groupBox2.Controls.Add(txtId);
+            groupBox2.Controls.Add(txtIngreso);
             groupBox2.Controls.Add(label3);
             groupBox2.Controls.Add(label2);
             groupBox2.Location = new Point(194, 0);
@@ -115,15 +115,15 @@
             txtContraseña.WordWrap = false;
             txtContraseña.TextChanged += txtContraseña_TextChanged;
             // 
-            // txtId
+            // txtIngreso
             // 
-            txtId.Font = new Font("Segoe UI", 12F);
-            txtId.Location = new Point(101, 103);
-            txtId.Multiline = true;
-            txtId.Name = "txtId";
-            txtId.Size = new Size(233, 30);
-            txtId.TabIndex = 2;
-            txtId.TextChanged += txtId_TextChanged;
+            txtIngreso.Font = new Font("Segoe UI", 12F);
+            txtIngreso.Location = new Point(101, 103);
+            txtIngreso.Multiline = true;
+            txtIngreso.Name = "txtIngreso";
+            txtIngreso.Size = new Size(233, 30);
+            txtIngreso.TabIndex = 2;
+            txtIngreso.TextChanged += txtId_TextChanged;
             // 
             // label3
             // 
@@ -167,7 +167,7 @@
         private Panel panel2;
         private Panel panel3;
         private GroupBox groupBox2;
-        private TextBox txtId;
+        private TextBox txtIngreso;
         private Label label3;
         private Label label2;
         private TextBox txtContraseña;

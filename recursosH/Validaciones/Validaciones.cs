@@ -19,13 +19,13 @@ namespace recursosH
         // Expresión regular para validar cédulas jurídicas (formato específico)
         private static readonly Regex CedulaJuridicaRegex = new Regex(@"^\d{3}-\d{6}-\d{4}$");
         // Expresión regular para validar nombres (solo letras, espacios, guiones y apóstrofes)
-        private static readonly Regex NombreRegex = new Regex(@"^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s'-]{2,500}$");
+        private static readonly Regex NombreRegex = new Regex(@"^.{1,500}$");
         // Expresión regular para validar números double (incluyendo negativos y decimales)
         private static readonly Regex DoubleRegex = new Regex(@"^-?\d+(\.\d+)?$");
         // Expresión regular para validar números enteros
         private static readonly Regex EnteroRegex = new Regex(@"^\d+$");
         // Expresión regular para validar fechas (formato YYYY-MM-DD)
-        private static readonly Regex FechaRegex = new Regex(@"^\d{2}-\d{2}-\d{4}$");
+        private static readonly Regex FechaRegex = new Regex(@"^\d{4}-\d{2}-\d{2}$");
         // Lista de nombres de roles permitidos
         public static readonly List<string> RolesPermitidos = new List<string>
         {

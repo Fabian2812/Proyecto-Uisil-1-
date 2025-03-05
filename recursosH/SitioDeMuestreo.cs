@@ -23,31 +23,7 @@ namespace recursosH
         public SitioDeMuestreo() { }
         public SitioDeMuestreo(int id_SitioDeMuestreo, string nombre_sitioDeMuestreo, int id_provincia, int id_canton, int id_distrito, int id_entidad) : base(id_SitioDeMuestreo)
         {
-            if (Validaciones.ValidarNombre(nombre_sitioDeMuestreo))
-            {
-                MessageBox.Show("Nombre no valido");
-                return;
-            }
-            if (Validaciones.ValidarId(id_provincia))
-            {
-                MessageBox.Show("ID provincia no valido");
-                return;
-            }
-            if (Validaciones.ValidarId(id_canton))
-            {
-                MessageBox.Show("ID canton no valido");
-                return;
-            }
-            if (Validaciones.ValidarId(id_distrito))
-            {
-                MessageBox.Show("ID distrito no valido");
-                return;
-            }
-            if (Validaciones.ValidarId(id_entidad))
-            {
-                MessageBox.Show("ID entidad no valido");
-                return;
-            }
+
             this.Nombre_SitioDeMuestreo = nombre_sitioDeMuestreo;
             this.Id_Provincia = id_provincia;
             this.Id_Canton = id_canton;

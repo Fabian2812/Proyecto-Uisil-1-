@@ -12,17 +12,28 @@ namespace recursosH.vista.Barra_de_navegacion
 {
     public partial class GestiónNacientes : Form
     {
-        public GestiónNacientes()
+        private int idRolUsuarioLogueado;
+        public GestiónNacientes(int idRolUsuarioLogueado)
         {
             InitializeComponent();
-                     
-
+            this.idRolUsuarioLogueado = idRolUsuarioLogueado;
+            ConfigurarBotonesSegunRol();
             txtNombreN.Text = "Lean Drogado";
             txtNombreN.ForeColor = Color.Gray;
             txtNombreN.Click += txtNombreN_Click;
             txtNombreN.Leave += txtNombreN_Leave;
 
-            
+
+        }
+        private void ConfigurarBotonesSegunRol()
+        {
+            // Obtener los permisos del rol del usuario logueado
+            var permisos = Validaciones.ObtenerPermisosPorRol(idRolUsuarioLogueado.ToString());
+
+            // Habilitar o deshabilitar botones según los permisos
+            btnCrear.Enabled = permisos.Contains("create");
+            btnActualizar.Enabled = permisos.Contains("update");
+            btnEliminar.Enabled = permisos.Contains("delete");
         }
 
         private void txtNombreN_TextChanged(object sender, EventArgs e)
@@ -44,6 +55,11 @@ namespace recursosH.vista.Barra_de_navegacion
             }
         }
         private void txtDireccionN_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCrear_Click(object sender, EventArgs e)
         {
 
         }

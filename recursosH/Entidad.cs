@@ -25,36 +25,7 @@ namespace recursosH
         public Entidad() { }
         public Entidad(int id_Entidad, string cedula_juridica, string nombre_entidad, string email, int telefono, string direccion_entidad, string descripcion_entidad) : base(id_Entidad)
         {
-            if (Validaciones.ValidarCedulaJuridica(cedula_juridica))
-            {
-                MessageBox.Show("Cedula juridica no valida");
-                return;
-            }
-            if (Validaciones.ValidarNombre(nombre_entidad))
-            {
-                MessageBox.Show("Nombre no valido");
-                return;
-            }
-            if (Validaciones.ValidarCorreo(email))
-            {
-                MessageBox.Show("Email no valido");
-                return;
-            }
-            if (Validaciones.ValidarTelefono(telefono))
-            {
-                MessageBox.Show("Telefono no valido");
-                return;
-            }
-            if (Validaciones.ValidarNombre(direccion_entidad))
-            {
-                MessageBox.Show("Direccion no valida");
-                return;
-            }
-            if (Validaciones.ValidarNombre(descripcion_entidad))
-            {
-                MessageBox.Show("Descripcion no valida");
-                return;
-            }
+
             this.Cedula_Juridica = cedula_juridica;
             this.Nombre_Entidad = nombre_entidad;
             this.Email = email;

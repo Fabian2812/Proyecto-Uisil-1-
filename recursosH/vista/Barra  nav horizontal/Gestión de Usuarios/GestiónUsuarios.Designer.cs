@@ -29,12 +29,17 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            bntBuscarU = new Button();
             btnLista = new Button();
             btnEliminar = new Button();
             btnActualizar = new Button();
             btnCrear = new Button();
             panel2 = new Panel();
             groupBox1 = new GroupBox();
+            label8 = new Label();
+            label6 = new Label();
+            txtPrimerApellidoUsuario = new TextBox();
+            txtSegundoApellidoUsuario = new TextBox();
             txtIdUsuario = new TextBox();
             label7 = new Label();
             cbxUsuario = new ComboBox();
@@ -47,7 +52,6 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            bntBuscarU = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -65,6 +69,19 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(123, 797);
             panel1.TabIndex = 0;
+            // 
+            // bntBuscarU
+            // 
+            bntBuscarU.Dock = DockStyle.Top;
+            bntBuscarU.FlatAppearance.BorderSize = 0;
+            bntBuscarU.FlatStyle = FlatStyle.Flat;
+            bntBuscarU.Location = new Point(0, 240);
+            bntBuscarU.Name = "bntBuscarU";
+            bntBuscarU.Size = new Size(123, 60);
+            bntBuscarU.TabIndex = 4;
+            bntBuscarU.Text = "Buscar Usuario";
+            bntBuscarU.UseVisualStyleBackColor = true;
+            bntBuscarU.Click += bntBuscarU_Click;
             // 
             // btnLista
             // 
@@ -127,6 +144,10 @@
             // groupBox1
             // 
             groupBox1.BackgroundImageLayout = ImageLayout.None;
+            groupBox1.Controls.Add(label8);
+            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(txtPrimerApellidoUsuario);
+            groupBox1.Controls.Add(txtSegundoApellidoUsuario);
             groupBox1.Controls.Add(txtIdUsuario);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(cbxUsuario);
@@ -150,10 +171,46 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Formulario ";
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label8.Location = new Point(40, 223);
+            label8.Name = "label8";
+            label8.Size = new Size(95, 21);
+            label8.TabIndex = 17;
+            label8.Text = "2 Apellido:  ";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label6.Location = new Point(40, 188);
+            label6.Name = "label6";
+            label6.Size = new Size(83, 21);
+            label6.TabIndex = 16;
+            label6.Text = "Apellido:  ";
+            // 
+            // txtPrimerApellidoUsuario
+            // 
+            txtPrimerApellidoUsuario.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic);
+            txtPrimerApellidoUsuario.Location = new Point(229, 180);
+            txtPrimerApellidoUsuario.Name = "txtPrimerApellidoUsuario";
+            txtPrimerApellidoUsuario.Size = new Size(371, 29);
+            txtPrimerApellidoUsuario.TabIndex = 15;
+            // 
+            // txtSegundoApellidoUsuario
+            // 
+            txtSegundoApellidoUsuario.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic);
+            txtSegundoApellidoUsuario.Location = new Point(229, 220);
+            txtSegundoApellidoUsuario.Name = "txtSegundoApellidoUsuario";
+            txtSegundoApellidoUsuario.Size = new Size(371, 29);
+            txtSegundoApellidoUsuario.TabIndex = 14;
+            // 
             // txtIdUsuario
             // 
             txtIdUsuario.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic);
-            txtIdUsuario.Location = new Point(226, 130);
+            txtIdUsuario.Location = new Point(229, 103);
             txtIdUsuario.Name = "txtIdUsuario";
             txtIdUsuario.Size = new Size(371, 29);
             txtIdUsuario.TabIndex = 13;
@@ -162,18 +219,19 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label7.Location = new Point(40, 138);
+            label7.Location = new Point(50, 110);
             label7.Name = "label7";
             label7.Size = new Size(24, 21);
             label7.TabIndex = 12;
             label7.Text = "Id";
+            label7.Click += label7_Click;
             // 
             // cbxUsuario
             // 
             cbxUsuario.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic);
             cbxUsuario.FormattingEnabled = true;
             cbxUsuario.Items.AddRange(new object[] { "ASADA:", "Municipalidad:" });
-            cbxUsuario.Location = new Point(229, 328);
+            cbxUsuario.Location = new Point(229, 369);
             cbxUsuario.Name = "cbxUsuario";
             cbxUsuario.Size = new Size(368, 29);
             cbxUsuario.TabIndex = 10;
@@ -183,7 +241,7 @@
             cbRolU.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic);
             cbRolU.FormattingEnabled = true;
             cbRolU.Items.AddRange(new object[] { "Superadministrador:", "Administrador:", "Digitador:" });
-            cbRolU.Location = new Point(229, 283);
+            cbRolU.Location = new Point(229, 334);
             cbRolU.Name = "cbRolU";
             cbRolU.Size = new Size(368, 29);
             cbRolU.TabIndex = 9;
@@ -191,7 +249,7 @@
             // txtPasswordUsuario
             // 
             txtPasswordUsuario.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic);
-            txtPasswordUsuario.Location = new Point(226, 241);
+            txtPasswordUsuario.Location = new Point(229, 299);
             txtPasswordUsuario.Name = "txtPasswordUsuario";
             txtPasswordUsuario.Size = new Size(371, 29);
             txtPasswordUsuario.TabIndex = 8;
@@ -202,7 +260,7 @@
             txtCorreoUsuario.BackColor = SystemColors.Window;
             txtCorreoUsuario.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic);
             txtCorreoUsuario.ForeColor = SystemColors.WindowFrame;
-            txtCorreoUsuario.Location = new Point(226, 201);
+            txtCorreoUsuario.Location = new Point(229, 255);
             txtCorreoUsuario.Name = "txtCorreoUsuario";
             txtCorreoUsuario.Size = new Size(371, 29);
             txtCorreoUsuario.TabIndex = 7;
@@ -212,7 +270,7 @@
             // txtNombreUsuario
             // 
             txtNombreUsuario.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic);
-            txtNombreUsuario.Location = new Point(226, 166);
+            txtNombreUsuario.Location = new Point(229, 138);
             txtNombreUsuario.Name = "txtNombreUsuario";
             txtNombreUsuario.Size = new Size(371, 29);
             txtNombreUsuario.TabIndex = 6;
@@ -222,7 +280,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label5.Location = new Point(40, 328);
+            label5.Location = new Point(40, 377);
             label5.Name = "label5";
             label5.Size = new Size(69, 21);
             label5.TabIndex = 4;
@@ -232,7 +290,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label4.Location = new Point(40, 286);
+            label4.Location = new Point(40, 342);
             label4.Name = "label4";
             label4.Size = new Size(106, 21);
             label4.TabIndex = 3;
@@ -242,7 +300,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label3.Location = new Point(40, 244);
+            label3.Location = new Point(40, 307);
             label3.Name = "label3";
             label3.Size = new Size(96, 21);
             label3.TabIndex = 2;
@@ -252,7 +310,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label2.Location = new Point(40, 208);
+            label2.Location = new Point(40, 263);
             label2.Name = "label2";
             label2.Size = new Size(62, 21);
             label2.TabIndex = 1;
@@ -262,24 +320,12 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label1.Location = new Point(40, 166);
+            label1.Location = new Point(40, 146);
             label1.Name = "label1";
-            label1.Size = new Size(157, 21);
+            label1.Size = new Size(72, 21);
             label1.TabIndex = 0;
-            label1.Text = "Nombre y Apellido:  ";
-            // 
-            // bntBuscarU
-            // 
-            bntBuscarU.Dock = DockStyle.Top;
-            bntBuscarU.FlatAppearance.BorderSize = 0;
-            bntBuscarU.FlatStyle = FlatStyle.Flat;
-            bntBuscarU.Location = new Point(0, 240);
-            bntBuscarU.Name = "bntBuscarU";
-            bntBuscarU.Size = new Size(123, 60);
-            bntBuscarU.TabIndex = 4;
-            bntBuscarU.Text = "Buscar Usuario";
-            bntBuscarU.UseVisualStyleBackColor = true;
-            bntBuscarU.Click += bntBuscarU_Click;
+            label1.Text = "Nombre ";
+            label1.Click += label1_Click;
             // 
             // GestiónUsuarios
             // 
@@ -319,5 +365,9 @@
         private Label label7;
         private TextBox txtIdUsuario;
         private Button bntBuscarU;
+        private Label label8;
+        private Label label6;
+        private TextBox txtPrimerApellidoUsuario;
+        private TextBox txtSegundoApellidoUsuario;
     }
 }

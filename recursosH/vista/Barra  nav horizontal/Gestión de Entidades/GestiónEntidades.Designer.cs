@@ -32,6 +32,9 @@
             txtDescripcionE = new TextBox();
             txtDireccionE = new TextBox();
             txtTelefonoE = new TextBox();
+            txtCorreoE = new TextBox();
+            txtNombreE = new TextBox();
+            txtCedula = new TextBox();
             label6 = new Label();
             txtId = new TextBox();
             label7 = new Label();
@@ -45,9 +48,6 @@
             btnEliminar = new Button();
             btnActualizar = new Button();
             btnCrear = new Button();
-            txtCorreoE = new TextBox();
-            txtNombreE = new TextBox();
-            txtCedula = new TextBox();
             groupBox1.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -104,6 +104,30 @@
             txtTelefonoE.Name = "txtTelefonoE";
             txtTelefonoE.Size = new Size(371, 29);
             txtTelefonoE.TabIndex = 18;
+            // 
+            // txtCorreoE
+            // 
+            txtCorreoE.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic);
+            txtCorreoE.Location = new Point(219, 232);
+            txtCorreoE.Name = "txtCorreoE";
+            txtCorreoE.Size = new Size(371, 29);
+            txtCorreoE.TabIndex = 17;
+            // 
+            // txtNombreE
+            // 
+            txtNombreE.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic);
+            txtNombreE.Location = new Point(219, 197);
+            txtNombreE.Name = "txtNombreE";
+            txtNombreE.Size = new Size(371, 29);
+            txtNombreE.TabIndex = 16;
+            // 
+            // txtCedula
+            // 
+            txtCedula.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic);
+            txtCedula.Location = new Point(219, 162);
+            txtCedula.Name = "txtCedula";
+            txtCedula.Size = new Size(371, 29);
+            txtCedula.TabIndex = 15;
             // 
             // label6
             // 
@@ -243,30 +267,7 @@
             btnCrear.TabIndex = 3;
             btnCrear.Text = "Crear";
             btnCrear.UseVisualStyleBackColor = true;
-            // 
-            // txtCorreoE
-            // 
-            txtCorreoE.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic);
-            txtCorreoE.Location = new Point(219, 232);
-            txtCorreoE.Name = "txtCorreoE";
-            txtCorreoE.Size = new Size(371, 29);
-            txtCorreoE.TabIndex = 17;
-            // 
-            // txtNombreE
-            // 
-            txtNombreE.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic);
-            txtNombreE.Location = new Point(219, 197);
-            txtNombreE.Name = "txtNombreE";
-            txtNombreE.Size = new Size(371, 29);
-            txtNombreE.TabIndex = 16;
-            // 
-            // txtCedula
-            // 
-            txtCedula.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic);
-            txtCedula.Location = new Point(219, 162);
-            txtCedula.Name = "txtCedula";
-            txtCedula.Size = new Size(371, 29);
-            txtCedula.TabIndex = 15;
+            btnCrear.Click += btnCrear_Click;
             // 
             // GestiónEntidades
             // 

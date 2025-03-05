@@ -16,11 +16,7 @@ namespace recursosH
 
         public Provincia(int id_Provincia, string nombre_provincia) : base(id_Provincia)
         {
-            if (Validaciones.ValidarNombre(nombre_provincia))
-            {
-                MessageBox.Show("Nombre no valido");
-                return;
-            }
+
             this.Nombre_Provincia = nombre_provincia;
         }
         public override string ToString()

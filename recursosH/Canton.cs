@@ -17,16 +17,7 @@ namespace recursosH
         public Canton () { }
         public Canton(int id_Canton, string nombre_canton, int id_provincia) : base(id_Canton)
         {
-            if (Validaciones.ValidarNombre(nombre_canton))
-            {
-                MessageBox.Show("Nombre no valido");
-                return;
-            }
-            if (Validaciones.ValidarId(id_provincia))
-            {
-                MessageBox.Show("ID provincia no valido");
-                return;
-            }
+
             this.Nombre_Canton = nombre_canton;
             this.Id_Provincia = id_provincia;
         }
