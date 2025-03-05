@@ -29,7 +29,7 @@ namespace recursosH
         public MedicionDeCaudal() { }
         public MedicionDeCaudal (int id, int capacidad, string metodo, string observacione, DateTime fecha, string clima, string realizado, int id_naciente, int id_sitioDeMuestreo) : base(id)
         {
-            if (Validaciones.ValidarId(capacidad))
+            if (Validaciones.ValidarEntero(capacidad))
             {
                 MessageBox.Show("Capacidad no valida");
                 return;
@@ -42,6 +42,11 @@ namespace recursosH
             if (Validaciones.ValidarNombre(observacione))
             {
                 MessageBox.Show("Observacion no valida");
+                return;
+            }
+            if (Validaciones.ValidarFecha(fecha))
+            {
+                MessageBox.Show("Fecha no valida");
                 return;
             }
             if (Validaciones.ValidarNombre(clima))

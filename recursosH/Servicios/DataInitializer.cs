@@ -67,14 +67,16 @@ namespace recursosH
                 MessageBox.Show("El archivo JSON ya existe. No se necesita inicialización.");
             }
         }
-
+        // Método para cargar el archivo JSON si existe
         public static Dictionary<string, object> CargarJsonSiExiste()
         {
             if (File.Exists(dataFilePath))
             {
                 // Mensaje de depuración
                 MessageBox.Show("Archivo JSON encontrado. Cargando datos...");
+                // Cargar el archivo JSON en un diccionario
                 string jsonData = File.ReadAllText(dataFilePath);
+                // Retornar el diccionario con los datos
                 return JsonSerializer.Deserialize<Dictionary<string, object>>(jsonData);
             }
             else
@@ -83,12 +85,7 @@ namespace recursosH
                 MessageBox.Show("Archivo JSON no encontrado.");
                 return null; // Retorna null si el archivo no existe
             }
-                string jsonData = File.ReadAllText(dataFilePath);
-                return JsonSerializer.Deserialize<Dictionary<string, object>>(jsonData);
-            }
-            return null; // Retorna null si el archivo no existe
         }
-
         public static void VerificarYCargarJson()
         {
             var datos = CargarJsonSiExiste();
