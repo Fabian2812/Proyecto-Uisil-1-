@@ -28,41 +28,7 @@ namespace recursosH
         public Usuario() { }
         public Usuario (int id_Usuario,string Nombre_Usuario, string PrimerApellido, string SegundoApellido, string Correo, string Contrasena, int Id_Rol, int Id_Entidad) : base(id_Usuario)
         {
-            if (Validaciones.ValidarNombre(Nombre_Usuario))
-            {
-                MessageBox.Show("Nombre no válido. Debe ser un nombre válido."); 
-                return;
-            }
-            if (Validaciones.ValidarNombre(PrimerApellido))
-            {
-                MessageBox.Show("Primer Apellido no válido. Debe ser un apellido válido.");
-                return;
-            }
-            if (Validaciones.ValidarNombre(SegundoApellido))
-            {
-                MessageBox.Show("Segundo Apellido no válido. Debe ser un apellido válido.");
-                return;
-            }
-            if (Validaciones.ValidarCorreo(Correo))
-            {
-                MessageBox.Show("Correo no válido. Debe ser un correo válido.");
-                return;
-            }
-            if (Validaciones.ValidarContrasena(Contrasena))
-            {
-                MessageBox.Show("Contraseña no válida. Debe ser una contraseña válida.");
-                return;
-            }
-            if (Validaciones.ValidarId(Id_Rol))
-            {
-                MessageBox.Show("ID de Rol no válido. Debe ser un número entero positivo.");
-                return;
-            }
-            if (Validaciones.ValidarId(Id_Entidad))
-            {
-                MessageBox.Show("ID de Entidad no válido. Debe ser un número entero positivo.");
-                return;
-            }
+
             this.Nombre_Usuario = Nombre_Usuario;
             this.PrimerApellido = PrimerApellido;
             this.SegundoApellido = SegundoApellido;

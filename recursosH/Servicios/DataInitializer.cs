@@ -24,28 +24,30 @@ namespace recursosH
                 {
                     Usuarios = new List<Usuario>
                     {
-                        new Usuario(1, "Esteban", "Castro", "Rojas", "davidcr333@gmail.com", "T4uV7Ym", 1, 1),
-                        new Usuario(2, "Johana", "Segura", "Cruz", "johsc@gmail.com", "J3v#Fp4P", 2, 1),
-                        new Usuario(3, "Ana", "Matamorros", "Laiba", "anamlaiba67@gmail.com", "Wz8#r1pQ", 3, 1),
+                        new Usuario(1, "Esteban", "Castro", "Rojas", "davidcr333@gmail.com", "T4uV7Ym", 1,1),
+                        new Usuario(2, "Johana", "Segura", "Cruz", "johsc@gmail.com", "J3vFp4P", 2, 1),
+                        new Usuario(3, "Ana", "Matamorros", "Laiba", "anamlaiba67@gmail.com", "Wz8r1pQ", 3, 1),
                         new Usuario(4, "Daniela","Mora","Zapata","danymora@gmail.com", "Z9q2Xm7M", 1, 2),
-                        new Usuario(5, "José", "Barquero", "Calvo", "bcjose12@gmail.com", "YW6+wP2Z", 2, 2),
-                        new Usuario(6, "Pablo", "Guzmán", "Moreira", "guzmanpablo1@gmail.com", "N1zG+t4H", 3, 2),
-                        new Usuario(7, "Maria", "Perez", "Castillo", "perezcastillo@gmail.com","L8eVb$2R",1, 3),
-                        new Usuario(8, "David", "Barquero", "Rojas", "tebanbrojas@gmail.com", "Kxj5*kf3A", 2, 3),
-                        new Usuario(9, "Jonh", "Acevedo", "Alvarado", "jonh188@gamil.com", "Kd9Vb2$z3", 3, 3 ),
-                        new Usuario(10, "Maribel", "Gamboa", "Santos", "marigs@gamil.com", "Hvde7+4DJ", 1, 4),
-                        new Usuario(11, "Angelo", "Morales", "Acuña", "angelo789@gmail.com", "Wc88+t7W", 2, 4),
-                        new Usuario(12, "Karen", "Delgado", "Villalobos", "karendelgado@gmail.com", " L#67PsQn",3, 4)
+                        new Usuario(5, "Jose", "Barquero", "Calvo", "bcjose12@gmail.com", "YW6wP2Z", 2, 2),
+                        new Usuario(6, "Pablo", "Guzman", "Moreira", "guzmanpablo1@gmail.com", "N1zGt4H", 3, 2),
+                        new Usuario(7, "Maria", "Perez", "Castillo", "perezcastillo@gmail.com","L8eVb2R",1, 3),
+                        new Usuario(8, "David", "Barquero", "Rojas", "tebanbrojas@gmail.com", "Kxj5kf3A", 2, 3),
+                        new Usuario(9, "Jonh", "Acevedo", "Alvarado", "jonh188@gamil.com", "Kd9Vb2z3", 3, 3 ),
+                        new Usuario(10, "Maribel", "Gamboa", "Santos", "marigs@gamil.com", "Hvde74DJ", 1, 4),
+                        new Usuario(11, "Angelo", "Morales", "Rojas", "angelo789@gmail.com", "Wc88t7W", 2, 4),
+                        new Usuario(12, "Karen", "Delgado", "Villalobos", "karendelgado@gmail.com", " L67PsQn",3, 4)
                     },
                     Roles = new List<Rol>
-                    {
-
-                    },
+                     {
+                         new Rol(1, "Usuario"), // Permisos se asignan automáticamente
+                         new Rol(2, "Administrador"), // Permisos se asignan automáticamente
+                         new Rol(3, "SuperAdministrador") // Permisos se asignan automáticamente
+                     },
                     Entidades = new List<Entidad>
                     {
-                        new Entidad(1, "3102234567", "ASADA Río Claro", "info@asaricr.go.cr", 24671342, "Calle Central, Río Claro, Puntarenas", "La ASADA Río Claro administra el servicio de agua potable en la comunidad, garantizando un suministro seguro y eficiente para los habitantes."),
-                        new Entidad(2, "3103887654", "ASADA Los Laureles ", "info@asadaloslaureles.go.cr", 24893456, "200 m norte del parque, Los  Laureles, Heredia", "Asociación comunal encargada de la gestión del acueducto y el mantenimiento del agua potable en la zona de Los Laureles."),
-                        new Entidad(3, "3101876543", "Municipalidad de San Pedro", "info@cdss.go,cr", 24782345, "Avenida Principal, San Pedro, San José", "Instituto gubernamental responsable del desarrollo local, la infraestructura y la prestación de servivios en San Pedro."),
+                        new Entidad(1, "3102234567", "ASADA Rio Claro", "info@asaricr.go.cr", 24671342, "Calle Central, Río Claro, Puntarenas", "La ASADA Rio Claro administra el servicio de agua potable en la comunidad, garantizando un suministro seguro y eficiente para los habitantes."),
+                        new Entidad(2, "3103887654", "ASADA Los Laureles ", "info@asadaloslaureles.go.cr", 24893456, "200 m norte del parque, Los  Laureles, Heredia", "Asociación comunal encargada de la gestion del acueducto y el mantenimiento del agua potable en la zona de Los Laureles."),
+                        new Entidad(3, "3101876543", "Municipalidad de San Pedro", "info@cdss.go,cr", 24782345, "Avenida Principal, San Pedro, San Jose", "Instituto gubernamental responsable del desarrollo local, la infraestructura y la prestación de servivios en San Pedro."),
                         new Entidad(4, "3104345678", "Comité Municipal de Cultura San Carlos", "info@cds.co.cr",24984567, "Frente al Parque Central, San Carlos","Entidad ascrita a la Municipalidad de San Carlos encargada de fomentar el arte, la cultura y la educación en la comunidad.")
                     },
                     Nacientes = new List<Naciente>
@@ -69,7 +71,7 @@ namespace recursosH
                     },
                     SitiosDeMuestreo = new List<SitioDeMuestreo>
                     {
-                        new SitioDeMuestreo(1, "Naciente Río Celeste", 7, 19, 19, 1),
+                        new SitioDeMuestreo(1, "Naciente Río Celeste", 7, 19, 19,1),
                         new SitioDeMuestreo(2, "Naciente Las Trancas", 2, 6, 6, 1),
                         new SitioDeMuestreo(3, "Naciente Río Blanco", 1, 2, 2, 1),
                         new SitioDeMuestreo(4, "Naciente Río Pirrís", 3, 8, 8, 1),
@@ -81,18 +83,18 @@ namespace recursosH
                         new SitioDeMuestreo(10, "Naciente Río La Estrella",  5, 15, 15, 2),
                         new SitioDeMuestreo(11, "Naciente Río Nochebuena", 7, 21, 21, 2),
                         new SitioDeMuestreo(12, "Naciente Río Pacuare", 7, 20, 20, 2),
-                        new SitioDeMuestreo(13, "Naciente Río Celeste", 7, 19, 19,3),
-                        new SitioDeMuestreo(14, "Naciente Las Trancas", 2, 6, 6, 3),
-                        new SitioDeMuestreo(15, "Naciente Río Blanco", 1, 2, 2, 3),
-                        new SitioDeMuestreo(16, "Naciente Río Pirrís", 3, 8, 8, 3),
-                        new SitioDeMuestreo(17, "Naciente Río Grande", 5, 14, 14, 3),
+                        new SitioDeMuestreo(13, "Naciente Río Savegre", 7, 19, 19,3),
+                        new SitioDeMuestreo(14, "Naciente Las Esperanza", 2, 6, 6, 3),
+                        new SitioDeMuestreo(15, "Naciente Río Cielito", 1, 2, 2, 3),
+                        new SitioDeMuestreo(16, "Naciente Río Flores", 3, 8, 8, 3),
+                        new SitioDeMuestreo(17, "Naciente Río Floresa", 5, 14, 14, 3),
                         new SitioDeMuestreo(18, "Naciente Río Naranjo", 2, 4, 4, 3),
                         new SitioDeMuestreo(19, "Naciente Río Azul", 4, 11, 11, 4),
                         new SitioDeMuestreo(20, "Naciente Río Sierpe", 6, 17, 17, 4),
                         new SitioDeMuestreo(21, "Naciente Río Tempisque", 5, 13, 13, 4),
                         new SitioDeMuestreo(22, "Naciente Río La Estrella", 5, 13, 13, 4),
                         new SitioDeMuestreo(23, "Naciente Río Nochebuena", 7, 21, 21, 4),
-                        new SitioDeMuestreo(24, "Naciente Río Pacuare", 7, 20, 20, 4)
+                        new SitioDeMuestreo(24, "Naciente Río Pacuare", 7, 20, 20,4)
                     },
                     Provincias = new List<Provincia>
                     {
@@ -126,13 +128,14 @@ namespace recursosH
                         new Canton(18, "Golfito", 6),
                         new Canton(19, "Limón", 7),
                         new Canton(20, "Talamanca", 7),
-                        new Canton(21, "Siquirres", 7)
+                        new Canton(21, "Siquirres", 7),
+                        new Canton(22, "Matina", 7)
                     },
                     Distritos = new List<Distrito>
                     {
                         new Distrito(1, "Carmen", 1),
                         new Distrito(2, "San Antonio", 2),
-                        new Distrito(3, "San Miguel" 3),
+                        new Distrito(3, "San Miguel" ,3),
                         new Distrito(4, "Carrizal", 4),
                         new Distrito(5, "Santiago", 5),
                         new Distrito(6, "San Isidro", 6),
@@ -151,7 +154,9 @@ namespace recursosH
                         new Distrito(19, "Matama", 19),
                         new Distrito(20, "Bribri", 20),
                         new Distrito(21, "Barbilla", 21)
-                    }
+                    },
+
+               
                 };
 
                 string jsonData = JsonSerializer.Serialize(data);

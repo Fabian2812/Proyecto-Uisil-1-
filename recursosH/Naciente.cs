@@ -31,51 +31,7 @@ namespace recursosH
         public Naciente() { }
         public Naciente(int id_Naciente, string nombre_naciente, string direccion_naciente, Double latitud, Double longitud, string descripcion_naciente, int id_provincia, int id_canton, int id_distrito, int id_entidad) : base(id_Naciente)
         {
-            if (Validaciones.ValidarNombre(nombre_naciente))
-            {
-                MessageBox.Show("Nombre no valido");
-                return;
-            }
-            if (Validaciones.ValidarNombre(direccion_naciente))
-            {
-                MessageBox.Show("Direccion no valida");
-                return;
-            }
-            if (Validaciones.ValidarLatitud(latitud))
-            {
-                MessageBox.Show("Latitud no valida");
-                return;
-            }
-            if (Validaciones.ValidarLongitud(longitud))
-            {
-                MessageBox.Show("Longitud no valida");
-                return;
-            }
-            if (Validaciones.ValidarNombre(descripcion_naciente))
-            {
-                MessageBox.Show("Descripcion no valida");
-                return;
-            }
-            if (Validaciones.ValidarId(id_provincia))
-            {
-                MessageBox.Show("ID provincia no valido");
-                return;
-            }
-            if (Validaciones.ValidarId(id_canton))
-            {
-                MessageBox.Show("ID canton no valido");
-                return;
-            }
-            if (Validaciones.ValidarId(id_distrito))
-            {
-                MessageBox.Show("ID distrito no valido");
-                return;
-            }
-            if (Validaciones.ValidarId(id_entidad))
-            {
-                MessageBox.Show("ID entidad no valido");
-                return;
-            }
+
             this.Nombre_Naciente = nombre_naciente;
             this.Direccion_Naciente = direccion_naciente;
             this.latitud = latitud;

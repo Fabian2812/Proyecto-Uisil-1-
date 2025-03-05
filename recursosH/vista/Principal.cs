@@ -14,9 +14,11 @@ namespace recursosH.vista
 {
     public partial class Principal : Form
     {
+        private int idRolUsuarioLogueado;
         public Principal()
         {
             InitializeComponent();
+            this.idRolUsuarioLogueado = idRolUsuarioLogueado;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -52,25 +54,26 @@ namespace recursosH.vista
 
         private void btnGestionentidad_Click(object sender, EventArgs e)
         {
-            GestiónEntidades form = new GestiónEntidades();
+            GestiónEntidades form = new GestiónEntidades(idRolUsuarioLogueado);
             AbrirFormHija(form);
         }
 
         private void btnGestionnaciente_Click(object sender, EventArgs e)
         {
-            GestiónNacientes form = new GestiónNacientes();
+            GestiónNacientes form = new GestiónNacientes(idRolUsuarioLogueado);
             AbrirFormHija(form);
         }
 
         private void btnGestionusuarios_Click(object sender, EventArgs e)
         {
-            GestiónUsuarios form = new GestiónUsuarios();
+            // Usar el ID del rol del usuario logueado
+            GestiónUsuarios form = new GestiónUsuarios(idRolUsuarioLogueado);
             AbrirFormHija(form);
         }
 
 
 
-       
+
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             Buscar form = new Buscar();
@@ -95,7 +98,7 @@ namespace recursosH.vista
 
         private void btnGestionCaudal_Click(object sender, EventArgs e)
         {
-            GestionCaudal  form = new GestionCaudal();
+            GestionCaudal  form = new GestionCaudal(idRolUsuarioLogueado);
             AbrirFormHija(form);
         }
     }
