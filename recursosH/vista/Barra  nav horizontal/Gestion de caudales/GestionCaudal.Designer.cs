@@ -34,7 +34,7 @@
             txtnacienteC = new TextBox();
             txtrealizadoC = new TextBox();
             txtclimaC = new TextBox();
-            txtobservacionT = new TextBox();
+            txtobservacionC = new TextBox();
             txtmetodoC = new TextBox();
             txtcapacidadC = new TextBox();
             txtidC = new TextBox();
@@ -48,7 +48,6 @@
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
-            btnLista = new Button();
             btnEliminar = new Button();
             btnActualizar = new Button();
             btnCrear = new Button();
@@ -63,7 +62,7 @@
             panel1.Controls.Add(txtnacienteC);
             panel1.Controls.Add(txtrealizadoC);
             panel1.Controls.Add(txtclimaC);
-            panel1.Controls.Add(txtobservacionT);
+            panel1.Controls.Add(txtobservacionC);
             panel1.Controls.Add(txtmetodoC);
             panel1.Controls.Add(txtcapacidadC);
             panel1.Controls.Add(txtidC);
@@ -117,12 +116,12 @@
             txtclimaC.Size = new Size(279, 23);
             txtclimaC.TabIndex = 14;
             // 
-            // txtobservacionT
+            // txtobservacionC
             // 
-            txtobservacionT.Location = new Point(261, 163);
-            txtobservacionT.Name = "txtobservacionT";
-            txtobservacionT.Size = new Size(279, 23);
-            txtobservacionT.TabIndex = 12;
+            txtobservacionC.Location = new Point(261, 163);
+            txtobservacionC.Name = "txtobservacionC";
+            txtobservacionC.Size = new Size(279, 23);
+            txtobservacionC.TabIndex = 12;
             // 
             // txtmetodoC
             // 
@@ -237,7 +236,6 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(btnLista);
             panel2.Controls.Add(btnEliminar);
             panel2.Controls.Add(btnActualizar);
             panel2.Controls.Add(btnCrear);
@@ -246,18 +244,6 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(123, 450);
             panel2.TabIndex = 1;
-            // 
-            // btnLista
-            // 
-            btnLista.Dock = DockStyle.Top;
-            btnLista.FlatAppearance.BorderSize = 0;
-            btnLista.FlatStyle = FlatStyle.Flat;
-            btnLista.Location = new Point(0, 180);
-            btnLista.Name = "btnLista";
-            btnLista.Size = new Size(123, 60);
-            btnLista.TabIndex = 7;
-            btnLista.Text = "Lista de Caudales";
-            btnLista.UseVisualStyleBackColor = true;
             // 
             // btnEliminar
             // 
@@ -270,6 +256,7 @@
             btnEliminar.TabIndex = 6;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnActualizar
             // 
@@ -282,6 +269,7 @@
             btnActualizar.TabIndex = 5;
             btnActualizar.Text = "Actualizar";
             btnActualizar.UseVisualStyleBackColor = true;
+            btnActualizar.Click += btnActualizar_Click;
             // 
             // btnCrear
             // 
@@ -325,7 +313,7 @@
         private Label label2;
         private TextBox txtrealizadoC;
         private TextBox txtclimaC;
-        private TextBox txtobservacionT;
+        private TextBox txtobservacionC;
         private TextBox txtmetodoC;
         private TextBox txtcapacidadC;
         private TextBox txtidC;
@@ -333,7 +321,6 @@
         private TextBox txtnacienteC;
         private DateTimePicker dtpfechaC;
         private Panel panel2;
-        private Button btnLista;
         private Button btnEliminar;
         private Button btnActualizar;
         private Button btnCrear;

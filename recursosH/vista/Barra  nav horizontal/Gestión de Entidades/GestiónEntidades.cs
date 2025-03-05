@@ -25,7 +25,7 @@ namespace recursosH.vista.Barra_de_navegacion
         private void ConfigurarBotonesSegunRol()
         {
             // Obtener los permisos del rol del usuario logueado
-            var permisos = Validaciones.ObtenerPermisosPorRol(idRolUsuarioLogueado.ToString());
+            var permisos = Validaciones.ObtenerPermisosPorRol(idRolUsuarioLogueado);
 
             // Habilitar o deshabilitar botones según los permisos
             btnCrear.Enabled = permisos.Contains("create");

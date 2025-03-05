@@ -15,10 +15,12 @@ namespace recursosH.vista
     public partial class Principal : Form
     {
         private int idRolUsuarioLogueado;
-        public Principal()
+
+        // Constructor modificado para recibir el idRolUsuarioLogueado
+        public Principal(int idRolUsuarioLogueado)
         {
             InitializeComponent();
-            this.idRolUsuarioLogueado = idRolUsuarioLogueado;
+            this.idRolUsuarioLogueado = idRolUsuarioLogueado; // Asignar el idRolUsuarioLogueado
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -43,7 +45,7 @@ namespace recursosH.vista
         }
         private void btnInicio_Click(object sender, EventArgs e)
         {
-            Principal form = new Principal();
+            Principal form = new Principal(idRolUsuarioLogueado);
 
 
             this.Hide();
@@ -66,8 +68,13 @@ namespace recursosH.vista
 
         private void btnGestionusuarios_Click(object sender, EventArgs e)
         {
-            // Usar el ID del rol del usuario logueado
             GestiónUsuarios form = new GestiónUsuarios(idRolUsuarioLogueado);
+            AbrirFormHija(form);
+        }
+
+        private void btnGestionCaudal_Click(object sender, EventArgs e)
+        {
+            GestionCaudal form = new GestionCaudal(idRolUsuarioLogueado);
             AbrirFormHija(form);
         }
 
@@ -96,10 +103,6 @@ namespace recursosH.vista
 
         }
 
-        private void btnGestionCaudal_Click(object sender, EventArgs e)
-        {
-            GestionCaudal  form = new GestionCaudal(idRolUsuarioLogueado);
-            AbrirFormHija(form);
-        }
+        
     }
 }

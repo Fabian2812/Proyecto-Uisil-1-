@@ -40,16 +40,12 @@ namespace recursosH
 
             if (usuarioLogueado != null)
             {
-                // Guardar el Id_Rol del usuario logueado
-                idRolUsuarioLogueado = usuarioLogueado.Id_Rol;
-                
-                // Mostrar el formulario de gestión de usuarios
-                GestiónUsuarios gestionUsuario = new GestiónUsuarios(idRolUsuarioLogueado);
-                GestiónEntidades gestiónEntidades = new GestiónEntidades(idRolUsuarioLogueado);
-                GestionCaudal gestionCaudal = new GestionCaudal(idRolUsuarioLogueado);
-                GestiónNacientes gestiónNacientes = new GestiónNacientes(idRolUsuarioLogueado);
-                gestionUsuario.Show();
+                // Guardar el ID del rol del usuario logueado
+                int idRolUsuarioLogueado = usuarioLogueado.Id_Rol;
 
+                // Crear una instancia de Principal pasando el idRolUsuarioLogueado
+                Principal principal = new Principal(idRolUsuarioLogueado);
+                principal.Show();
                 this.Hide(); // Ocultar el formulario de login
             }
             else
@@ -59,7 +55,7 @@ namespace recursosH
         }
 
 
-            private Usuario ValidarLogin(string correo, string contrasena)
+        private Usuario ValidarLogin(string correo, string contrasena)
         {
             // Cargar la lista de usuarios desde el JSON
             var usuarios = DataInitializer.LoadData<List<Usuario>>("Usuarios");

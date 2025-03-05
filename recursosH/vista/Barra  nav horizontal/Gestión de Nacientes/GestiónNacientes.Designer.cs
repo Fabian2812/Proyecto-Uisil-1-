@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            textBox2N = new TextBox();
             txtDistritoN = new TextBox();
             txtCantonN = new TextBox();
             txtProvinciaN = new TextBox();
@@ -38,7 +39,6 @@
             txtDireccionN = new TextBox();
             txtNombreN = new TextBox();
             txtIDN = new TextBox();
-            cmbEntidadN = new ComboBox();
             label10 = new Label();
             label9 = new Label();
             label8 = new Label();
@@ -52,7 +52,6 @@
             btnCrear = new Button();
             btnActualizar = new Button();
             btnEliminar = new Button();
-            btnLista = new Button();
             panel2 = new Panel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -60,6 +59,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(textBox2N);
             panel1.Controls.Add(txtDistritoN);
             panel1.Controls.Add(txtCantonN);
             panel1.Controls.Add(txtProvinciaN);
@@ -69,7 +69,6 @@
             panel1.Controls.Add(txtDireccionN);
             panel1.Controls.Add(txtNombreN);
             panel1.Controls.Add(txtIDN);
-            panel1.Controls.Add(cmbEntidadN);
             panel1.Controls.Add(label10);
             panel1.Controls.Add(label9);
             panel1.Controls.Add(label8);
@@ -85,6 +84,13 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(671, 450);
             panel1.TabIndex = 0;
+            // 
+            // textBox2N
+            // 
+            textBox2N.Location = new Point(223, 376);
+            textBox2N.Name = "textBox2N";
+            textBox2N.Size = new Size(276, 23);
+            textBox2N.TabIndex = 20;
             // 
             // txtDistritoN
             // 
@@ -150,16 +156,7 @@
             txtIDN.Name = "txtIDN";
             txtIDN.Size = new Size(276, 23);
             txtIDN.TabIndex = 11;
-            // 
-            // cmbEntidadN
-            // 
-            cmbEntidadN.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cmbEntidadN.FormattingEnabled = true;
-            cmbEntidadN.Items.AddRange(new object[] { "ASADA", "Municipalidad" });
-            cmbEntidadN.Location = new Point(223, 372);
-            cmbEntidadN.Name = "cmbEntidadN";
-            cmbEntidadN.Size = new Size(276, 29);
-            cmbEntidadN.TabIndex = 10;
+            txtIDN.TextChanged += txtIDN_TextChanged;
             // 
             // label10
             // 
@@ -285,6 +282,7 @@
             btnActualizar.TabIndex = 1;
             btnActualizar.Text = "Actualizar";
             btnActualizar.UseVisualStyleBackColor = true;
+            btnActualizar.Click += btnActualizar_Click;
             // 
             // btnEliminar
             // 
@@ -297,22 +295,10 @@
             btnEliminar.TabIndex = 2;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
-            // 
-            // btnLista
-            // 
-            btnLista.Dock = DockStyle.Top;
-            btnLista.FlatAppearance.BorderSize = 0;
-            btnLista.FlatStyle = FlatStyle.Flat;
-            btnLista.Location = new Point(0, 180);
-            btnLista.Name = "btnLista";
-            btnLista.Size = new Size(123, 60);
-            btnLista.TabIndex = 3;
-            btnLista.Text = "Lista de Nacientes";
-            btnLista.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // panel2
             // 
-            panel2.Controls.Add(btnLista);
             panel2.Controls.Add(btnEliminar);
             panel2.Controls.Add(btnActualizar);
             panel2.Controls.Add(btnCrear);
@@ -353,10 +339,8 @@
         private Button btnCrear;
         private Button btnActualizar;
         private Button btnEliminar;
-        private Button btnLista;
         private Panel panel2;
         private TextBox textBox1;
-        private ComboBox cmbEntidadN;
         private TextBox txtDistritoN;
         private TextBox txtCantonN;
         private TextBox txtProvinciaN;
@@ -366,5 +350,6 @@
         private TextBox txtDireccionN;
         private TextBox txtNombreN;
         private TextBox txtIDN;
+        private TextBox textBox2N;
     }
 }

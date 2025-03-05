@@ -36,14 +36,16 @@
             btnCrear = new Button();
             panel2 = new Panel();
             groupBox1 = new GroupBox();
+            label10 = new Label();
+            label9 = new Label();
+            textBox2 = new TextBox();
+            textBox1 = new TextBox();
             label8 = new Label();
             label6 = new Label();
             txtPrimerApellidoUsuario = new TextBox();
             txtSegundoApellidoUsuario = new TextBox();
             txtIdUsuario = new TextBox();
             label7 = new Label();
-            cbxUsuario = new ComboBox();
-            cbRolU = new ComboBox();
             txtPasswordUsuario = new TextBox();
             txtCorreoUsuario = new TextBox();
             txtNombreUsuario = new TextBox();
@@ -65,9 +67,9 @@
             panel1.Controls.Add(btnActualizar);
             panel1.Controls.Add(btnCrear);
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(1139, 0);
+            panel1.Location = new Point(1261, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(123, 797);
+            panel1.Size = new Size(123, 890);
             panel1.TabIndex = 0;
             // 
             // bntBuscarU
@@ -106,6 +108,7 @@
             btnEliminar.TabIndex = 2;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click_1;
             // 
             // btnActualizar
             // 
@@ -118,6 +121,7 @@
             btnActualizar.TabIndex = 1;
             btnActualizar.Text = "Actualizar";
             btnActualizar.UseVisualStyleBackColor = true;
+            btnActualizar.Click += btnActualizar_Click_1;
             // 
             // btnCrear
             // 
@@ -138,20 +142,22 @@
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1139, 797);
+            panel2.Size = new Size(1261, 890);
             panel2.TabIndex = 1;
             // 
             // groupBox1
             // 
             groupBox1.BackgroundImageLayout = ImageLayout.None;
+            groupBox1.Controls.Add(label10);
+            groupBox1.Controls.Add(label9);
+            groupBox1.Controls.Add(textBox2);
+            groupBox1.Controls.Add(textBox1);
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(txtPrimerApellidoUsuario);
             groupBox1.Controls.Add(txtSegundoApellidoUsuario);
             groupBox1.Controls.Add(txtIdUsuario);
             groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(cbxUsuario);
-            groupBox1.Controls.Add(cbRolU);
             groupBox1.Controls.Add(txtPasswordUsuario);
             groupBox1.Controls.Add(txtCorreoUsuario);
             groupBox1.Controls.Add(txtNombreUsuario);
@@ -166,10 +172,44 @@
             groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(0);
-            groupBox1.Size = new Size(1139, 797);
+            groupBox1.Size = new Size(1261, 890);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Formulario ";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(229, 462);
+            label10.Name = "label10";
+            label10.Size = new Size(228, 21);
+            label10.TabIndex = 21;
+            label10.Text = "1,2=Asada/3,4=municipalidad";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(229, 374);
+            label9.Name = "label9";
+            label9.Size = new Size(266, 21);
+            label9.TabIndex = 20;
+            label9.Text = "1=Usuario,2=Admin,3=SuperAdmin";
+            // 
+            // textBox2
+            // 
+            textBox2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic);
+            textBox2.Location = new Point(229, 414);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(371, 29);
+            textBox2.TabIndex = 19;
+            // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic);
+            textBox1.Location = new Point(229, 342);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(371, 29);
+            textBox1.TabIndex = 18;
             // 
             // label8
             // 
@@ -226,26 +266,6 @@
             label7.Text = "Id";
             label7.Click += label7_Click;
             // 
-            // cbxUsuario
-            // 
-            cbxUsuario.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic);
-            cbxUsuario.FormattingEnabled = true;
-            cbxUsuario.Items.AddRange(new object[] { "ASADA:", "Municipalidad:" });
-            cbxUsuario.Location = new Point(229, 369);
-            cbxUsuario.Name = "cbxUsuario";
-            cbxUsuario.Size = new Size(368, 29);
-            cbxUsuario.TabIndex = 10;
-            // 
-            // cbRolU
-            // 
-            cbRolU.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic);
-            cbRolU.FormattingEnabled = true;
-            cbRolU.Items.AddRange(new object[] { "Superadministrador:", "Administrador:", "Digitador:" });
-            cbRolU.Location = new Point(229, 334);
-            cbRolU.Name = "cbRolU";
-            cbRolU.Size = new Size(368, 29);
-            cbRolU.TabIndex = 9;
-            // 
             // txtPasswordUsuario
             // 
             txtPasswordUsuario.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic);
@@ -280,7 +300,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label5.Location = new Point(40, 377);
+            label5.Location = new Point(54, 417);
             label5.Name = "label5";
             label5.Size = new Size(69, 21);
             label5.TabIndex = 4;
@@ -290,7 +310,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label4.Location = new Point(40, 342);
+            label4.Location = new Point(40, 345);
             label4.Name = "label4";
             label4.Size = new Size(106, 21);
             label4.TabIndex = 3;
@@ -331,7 +351,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1262, 797);
+            ClientSize = new Size(1384, 890);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "GestiónUsuarios";
@@ -356,12 +376,10 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private ComboBox cbRolU;
         private TextBox txtPasswordUsuario;
         private TextBox txtCorreoUsuario;
         private TextBox txtNombreUsuario;
         private Label label5;
-        private ComboBox cbxUsuario;
         private Label label7;
         private TextBox txtIdUsuario;
         private Button bntBuscarU;
@@ -369,5 +387,9 @@
         private Label label6;
         private TextBox txtPrimerApellidoUsuario;
         private TextBox txtSegundoApellidoUsuario;
+        private Label label10;
+        private Label label9;
+        private TextBox textBox2;
+        private TextBox textBox1;
     }
 }

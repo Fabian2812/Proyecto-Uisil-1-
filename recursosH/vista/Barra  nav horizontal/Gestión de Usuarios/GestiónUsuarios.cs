@@ -39,7 +39,7 @@ namespace recursosH.vista.Barra_de_navegacion
         private void ConfigurarBotonesSegunRol()
         {
             // Obtener los permisos del rol del usuario logueado
-            var permisos = Validaciones.ObtenerPermisosPorRol(idRolUsuarioLogueado.ToString());
+            var permisos = Validaciones.ObtenerPermisosPorRol(idRolUsuarioLogueado);
 
             // Habilitar o deshabilitar botones según los permisos
             btnCrear.Enabled = permisos.Contains("create");
@@ -113,50 +113,41 @@ namespace recursosH.vista.Barra_de_navegacion
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
+            // Validar que los campos no estén vacíos
+            if (string.IsNullOrEmpty(txtIdUsuario.Text) ||
+                string.IsNullOrEmpty(textBox1.Text) ||
+                string.IsNullOrEmpty(textBox2.Text))
+            {
+                MessageBox.Show("Error: Todos los campos son obligatorios.");
+                return;
+            }
+
+            // Validar que los campos sean números válidos
+            if (!int.TryParse(txtIdUsuario.Text, out int idUsuario) ||
+                !int.TryParse(textBox1.Text, out int idRol) ||
+                !int.TryParse(textBox2.Text, out int idEntidad))
+            {
+                MessageBox.Show("Error: Los campos ID, Rol y Entidad deben ser números válidos.");
+                return;
+            }
+
             // Obtener los datos del formulario
             var nuevoUsuario = new Usuario
             {
-                Id = int.Parse(txtIdUsuario.Text),
+                Id = idUsuario,
                 Nombre_Usuario = txtNombreUsuario.Text,
                 PrimerApellido = txtPrimerApellidoUsuario.Text,
                 SegundoApellido = txtSegundoApellidoUsuario.Text,
                 Correo = txtCorreoUsuario.Text,
                 Contrasena = txtPasswordUsuario.Text,
-                Id_Rol = int.Parse(cbRolU.SelectedValue.ToString()),
-                Id_Entidad = int.Parse(cbxUsuario.Text)
+                Id_Rol = idRol,
+                Id_Entidad = idEntidad
             };
 
             // Llamar al método para guardar el nuevo usuario
             DataInitializer.GuardarUsuarios(new List<Usuario> { nuevoUsuario }, idRolUsuarioLogueado);
         }
 
-        private void btnActualizar_Click(object sender, EventArgs e)
-        {
-            // Obtener los datos del formulario
-            var usuarioEditado = new Usuario
-            {
-                Id = int.Parse(txtIdUsuario.Text),
-                Nombre_Usuario = txtNombreUsuario.Text,
-                PrimerApellido = txtPrimerApellidoUsuario.Text,
-                SegundoApellido = txtSegundoApellidoUsuario.Text,
-                Correo = txtCorreoUsuario.Text,
-                Contrasena = txtPasswordUsuario.Text,
-                Id_Rol = int.Parse(cbRolU.SelectedValue.ToString()),
-                Id_Entidad = int.Parse(cbxUsuario.Text)
-            };
-
-            // Llamar al método para editar el usuario
-            DataInitializer.EditarUsuario(usuarioEditado, idRolUsuarioLogueado);
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            // Obtener el ID del usuario a eliminar
-            int idUsuarioAEliminar = int.Parse(txtIdUsuario.Text);
-
-            // Llamar al método para eliminar el usuario
-            DataInitializer.EliminarUsuario(idUsuarioAEliminar, idRolUsuarioLogueado);
-        }
 
         private void bntBuscarU_Click(object sender, EventArgs e)
         {
@@ -187,8 +178,8 @@ namespace recursosH.vista.Barra_de_navegacion
                 txtSegundoApellidoUsuario.Text = usuario.SegundoApellido;
                 txtCorreoUsuario.Text = usuario.Correo;
                 txtPasswordUsuario.Text = usuario.Contrasena;
-                cbRolU.SelectedValue = usuario.Id_Rol;
-                cbxUsuario.Text = usuario.Id_Entidad.ToString();
+                textBox1.Text = usuario.Id_Rol.ToString();
+                textBox2.Text = usuario.Id_Entidad.ToString();
                 // Bloquear el campo de ID
                 txtIdUsuario.Enabled = false; // El ID no se puede editar
             }
@@ -206,6 +197,44 @@ namespace recursosH.vista.Barra_de_navegacion
         private void label7_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbRolU_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbxUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click_1(object sender, EventArgs e)
+        {
+            // Obtener el ID del usuario a eliminar
+            int idUsuarioAEliminar = int.Parse(txtIdUsuario.Text);
+
+            // Llamar al método para eliminar el usuario
+            DataInitializer.EliminarUsuario(idUsuarioAEliminar, idRolUsuarioLogueado);
+        }
+
+        private void btnActualizar_Click_1(object sender, EventArgs e)
+        {
+            // Obtener los datos del formulario
+            var usuarioEditado = new Usuario
+            {
+                Id = int.Parse(txtIdUsuario.Text),
+                Nombre_Usuario = txtNombreUsuario.Text,
+                PrimerApellido = txtPrimerApellidoUsuario.Text,
+                SegundoApellido = txtSegundoApellidoUsuario.Text,
+                Correo = txtCorreoUsuario.Text,
+                Contrasena = txtPasswordUsuario.Text,
+                Id_Rol = int.Parse(textBox1.Text),
+                Id_Entidad = int.Parse(textBox2.Text)
+            };
+
+            // Llamar al método para editar el usuario
+            DataInitializer.EditarUsuario(usuarioEditado, idRolUsuarioLogueado);
         }
     }
 }

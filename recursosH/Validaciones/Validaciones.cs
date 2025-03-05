@@ -12,8 +12,8 @@ namespace recursosH
     {
         // Expresión regular para validar correos electrónicos
         private static readonly Regex CorreoRegex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
-        // Expresión regular para validar contraseñas (al menos 8 caracteres, una mayúscula, una minúscula y un número)
-        private static readonly Regex ContraseñaRegex = new Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$");
+        // Expresión regular para validar contraseñas acepte mayusculas y minisculas y cualquier cantidad de letras
+        private static readonly Regex ContraseñaRegex = new Regex(@"^(?=.*[a-z])(?=.*[A-Z]).+$");
         // Expresión regular para validar números de teléfono (solo dígitos, 8 caracteres)
         private static readonly Regex TelefonoRegex = new Regex(@"^\d{8}$");
         // Expresión regular para validar cédulas jurídicas (formato específico)
@@ -36,11 +36,11 @@ namespace recursosH
         {
             "create", "read", "update", "delete"
         };
-        private static readonly Dictionary<string, List<string>> PermisosPorRol = new Dictionary<string, List<string>>
+        private static readonly Dictionary<int, List<string>> PermisosPorRol = new Dictionary<int, List<string>>
         {
-            { "Usuario", new List<string> { "read" } },
-            { "Administrador", new List<string> { "create", "read", "update" } },
-            { "SuperAdministrador", new List<string> { "create", "read", "update", "delete" } }
+            { 1, new List<string> { "read" } },               // Usuario (ID = 1)
+            { 2, new List<string> { "create", "read", "update" } }, // Administrador (ID = 2)
+            { 3, new List<string> { "create", "read", "update", "delete" } } // SuperAdministrador (ID = 3)
         };
         // Método para validar IDs (debe ser un número entero positivo)
         public static bool ValidarId(int id)
@@ -79,10 +79,10 @@ namespace recursosH
             return !string.IsNullOrEmpty(nombreRol) && RolesPermitidos.Contains(nombreRol);
         }
         // Método para obtener los permisos de un rol
-        public static List<string> ObtenerPermisosPorRol(string nombreRol)
+        public static List<string> ObtenerPermisosPorRol(int idRol)
         {
-            if (PermisosPorRol.ContainsKey(nombreRol))
-                return PermisosPorRol[nombreRol];
+            if (PermisosPorRol.ContainsKey(idRol))
+                return PermisosPorRol[idRol];
             return new List<string>(); // Retorna una lista vacía si el rol no existe
         }
         public static bool ValidarLatitud(double latitud)
