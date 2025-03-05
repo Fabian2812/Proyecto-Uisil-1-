@@ -28,7 +28,7 @@ namespace recursosH
             this.Id = id;
             this.Nombre_Rol = nombre_rol;
             // Asigna los permisos correspondientes al rol
-            this.Permisos = Validaciones.ObtenerPermisosPorRol(nombre_rol);
+            this.Permisos = Validaciones.ObtenerPermisosPorRol(id);
 
             MessageBox.Show("Rol creado exitosamente.");
         }

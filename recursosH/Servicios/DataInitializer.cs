@@ -24,7 +24,7 @@ namespace recursosH
                 {
                     Usuarios = new List<Usuario>
                     {
-                        new Usuario(1, "Esteban", "Castro", "Rojas", "davidcr333@gmail.com", "T4uV7Ym", 1,1),
+                        new Usuario(1, "Esteban", "Castro", "Rojas", "davidcr333@gmail.com", "T4uV7Ym",1, 1),
                         new Usuario(2, "Johana", "Segura", "Cruz", "johsc@gmail.com", "J3vFp4P", 2, 1),
                         new Usuario(3, "Ana", "Matamorros", "Laiba", "anamlaiba67@gmail.com", "Wz8r1pQ", 3, 1),
                         new Usuario(4, "Daniela","Mora","Zapata","danymora@gmail.com", "Z9q2Xm7M", 1, 2),
@@ -155,8 +155,35 @@ namespace recursosH
                         new Distrito(20, "Bribri", 20),
                         new Distrito(21, "Barbilla", 21)
                     },
+                    MedicionDeCaudal = new List<MedicionDeCaudal>
+                    {
+                        new MedicionDeCaudal(1,100,"directo","flujo",new DateTime(2021, 10, 15),"soleado","analizado",1,1),
+                        new MedicionDeCaudal(2,100,"directo","flujo",new DateTime(2021, 10, 15),"soleado","analizado",1,1),
+                        new MedicionDeCaudal(3,100,"directo","flujo",new DateTime(2021, 10, 15),"soleado","analizado",1,1),
+                        new MedicionDeCaudal(4,100,"directo","flujo",new DateTime(2021, 10, 15),"soleado","analizado",1,1),
+                        new MedicionDeCaudal(5,100,"directo","flujo",new DateTime(2021, 10, 15),"soleado","analizado",1,1),
+                        new MedicionDeCaudal(6,100,"directo","flujo",new DateTime(2021, 10, 15),"soleado","analizado",1,1),
+                        new MedicionDeCaudal(7,100,"directo","flujo",new DateTime(2021, 10, 15),"soleado","analizado",1,1),
+                        new MedicionDeCaudal(8,100,"directo","flujo",new DateTime(2021, 10, 15),"soleado","analizado",1,1),
+                        new MedicionDeCaudal(9,100,"directo","flujo",new DateTime(2021, 10, 15),"soleado","analizado",1,1),
+                        new MedicionDeCaudal(10,100,"directo","flujo",new DateTime(2021, 10, 15),"soleado","analizado",1,1),
+                        new MedicionDeCaudal(11,100,"directo","flujo",new DateTime(2021, 10, 15),"soleado","analizado",1,1),
+                        new MedicionDeCaudal(12,100,"directo","flujo",new DateTime(2021, 10, 15),"soleado","analizado",1,1),
+                        new MedicionDeCaudal(13,100,"directo","flujo",new DateTime(2021, 10, 15),"soleado","analizado",1,1),
+                        new MedicionDeCaudal(14,100,"directo","flujo",new DateTime(2021, 10, 15),"soleado","analizado",1,1),
+                        new MedicionDeCaudal(15,100,"directo","flujo",new DateTime(2021, 10, 15),"soleado","analizado",1,1),
+                        new MedicionDeCaudal(16,100,"directo","flujo",new DateTime(2021, 10, 15),"soleado","analizado",1,1),
+                        new MedicionDeCaudal(17,100,"directo","flujo",new DateTime(2021, 10, 15),"soleado","analizado",1,1),
+                        new MedicionDeCaudal(18,100,"directo","flujo",new DateTime(2021, 10, 15),"soleado","analizado",1,1),
+                        new MedicionDeCaudal(19,100,"directo","flujo",new DateTime(2021, 10, 15),"soleado","analizado",1,1),
+                        new MedicionDeCaudal(20,100,"directo","flujo",new DateTime(2021, 10, 15),"soleado","analizado",1,1),
+                        new MedicionDeCaudal(21,100,"directo","flujo",new DateTime(2021, 10, 15),"soleado","analizado",1,1),
+                        new MedicionDeCaudal(22,100,"directo","flujo",new DateTime(2021, 10, 15),"soleado","analizado",1,1),
+                        new MedicionDeCaudal(23,100,"directo","flujo",new DateTime(2021, 10, 15),"soleado","analizado",1,1),
+                        new MedicionDeCaudal(24,100,"directo","flujo",new DateTime(2021, 10, 15),"soleado","analizado",1,1),
+                        new MedicionDeCaudal(25,100,"directo","flujo",new DateTime(2021, 10, 15),"soleado","analizado",1,1)
+                    }
 
-               
                 };
 
                 string jsonData = JsonSerializer.Serialize(data);
@@ -224,7 +251,7 @@ namespace recursosH
         public static void GuardarUsuarios(List<Usuario> nuevosUsuarios, int idRolUsuarioActual)
         {
             // Verificar permisos del usuario actual
-            var permisos = Validaciones.ObtenerPermisosPorRol(idRolUsuarioActual.ToString());
+            var permisos = Validaciones.ObtenerPermisosPorRol(idRolUsuarioActual);
 
             if (!permisos.Contains("create"))
             {
@@ -234,7 +261,7 @@ namespace recursosH
             // Validar los datos de los usuarios
             foreach (var nuevoUsuario in nuevosUsuarios)
             {
-                if (!Validaciones.ValidarId(nuevoUsuario.Id))
+                if (!Validaciones.ValidarEntero(nuevoUsuario.Id))
                 {
                     MessageBox.Show($"Error: El ID del usuario {nuevoUsuario.Id} no es válido.");
                     return;
@@ -264,12 +291,12 @@ namespace recursosH
                     MessageBox.Show($"Error: La contraseña del usuario {nuevoUsuario.Id} no es válida.");
                     return;
                 }
-                if (!Validaciones.ValidarId(nuevoUsuario.Id_Entidad))
+                if (!Validaciones.ValidarEntero(nuevoUsuario.Id_Entidad))
                 {
                     MessageBox.Show($"Error: El ID de la entidad del usuario {nuevoUsuario.Id} no es válido.");
                     return;
                 }
-                if (!Validaciones.ValidarRol(nuevoUsuario.Id_Rol.ToString()))
+                if (!Validaciones.ValidarEntero(nuevoUsuario.Id_Rol))
                 {
                     MessageBox.Show($"Error: El rol del usuario {nuevoUsuario.Id} no es válido.");
                     return;
@@ -303,7 +330,7 @@ namespace recursosH
         public static void EliminarUsuario(int idUsuarioAEliminar, int idRolUsuarioActual)
         {
             // Verificar permisos del usuario actual
-            var permisos = Validaciones.ObtenerPermisosPorRol(idRolUsuarioActual.ToString());
+            var permisos = Validaciones.ObtenerPermisosPorRol(idRolUsuarioActual);
             if (!permisos.Contains("delete"))
             {
                 MessageBox.Show("No tienes permisos para eliminar usuarios.");
@@ -340,7 +367,7 @@ namespace recursosH
         public static void EditarUsuario(Usuario usuarioEditado, int idRolUsuarioActual)
         {
             // Verificar permisos del usuario actual
-            var permisos = Validaciones.ObtenerPermisosPorRol(idRolUsuarioActual.ToString());
+            var permisos = Validaciones.ObtenerPermisosPorRol(idRolUsuarioActual);
 
             if (!permisos.Contains("update"))
             {
@@ -348,7 +375,7 @@ namespace recursosH
                 return;
             }
             // Validar los datos del usuario editado
-            if (!Validaciones.ValidarId(usuarioEditado.Id))
+            if (!Validaciones.ValidarEntero(usuarioEditado.Id))
             {
                 MessageBox.Show("Error: El ID del usuario no es válido.");
                 return;
@@ -378,12 +405,12 @@ namespace recursosH
                 MessageBox.Show("Error: La contraseña del usuario no es válida.");
                 return;
             }
-            if (!Validaciones.ValidarId(usuarioEditado.Id_Entidad))
+            if (!Validaciones.ValidarEntero(usuarioEditado.Id_Entidad))
             {
                 MessageBox.Show("Error: El ID de la entidad del usuario no es válido.");
                 return;
             }
-            if (!Validaciones.ValidarRol(usuarioEditado.Id_Rol.ToString()))
+            if (!Validaciones.ValidarEntero(usuarioEditado.Id_Rol))
             {
                 MessageBox.Show("Error: El rol del usuario no es válido.");
                 return;
@@ -422,14 +449,14 @@ namespace recursosH
         public static void GuardarNaciente(Naciente nuevoNaciente, int idRolUsuarioActual)
         {
             // Verificar permisos del usuario actual
-            var permisos = Validaciones.ObtenerPermisosPorRol(idRolUsuarioActual.ToString());
+            var permisos = Validaciones.ObtenerPermisosPorRol(idRolUsuarioActual);
             if (!permisos.Contains("create"))
             {
                 MessageBox.Show("No tienes permisos para crear nacientes.");
                 return;
             }
             // Validar los datos del naciente
-            if (!Validaciones.ValidarId(nuevoNaciente.Id))
+            if (!Validaciones.ValidarEntero(nuevoNaciente.Id))
             {
                 MessageBox.Show("Error: El ID del naciente no es válido.");
                 return;
@@ -459,22 +486,22 @@ namespace recursosH
                 MessageBox.Show("Error: La descripción del naciente no es válida.");
                 return;
             }
-            if (!Validaciones.ValidarId(nuevoNaciente.Id_Entidad))
+            if (!Validaciones.ValidarEntero(nuevoNaciente.Id_Entidad))
             {
                 MessageBox.Show("Error: El ID de la entidad no es válido.");
                 return;
             }
-            if (!Validaciones.ValidarId(nuevoNaciente.Id_Distrito))
+            if (!Validaciones.ValidarEntero(nuevoNaciente.Id_Distrito))
             {
                 MessageBox.Show("Error: El ID del distrito no es válido.");
                 return;
             }
-            if (!Validaciones.ValidarId(nuevoNaciente.Id_Provincia))
+            if (!Validaciones.ValidarEntero(nuevoNaciente.Id_Provincia))
             {
                 MessageBox.Show("Error: El ID de la provincia no es válido.");
                 return;
             }
-            if (!Validaciones.ValidarId(nuevoNaciente.Id_Canton))
+            if (!Validaciones.ValidarEntero(nuevoNaciente.Id_Canton))
             {
                 MessageBox.Show("Error: El ID del cantón no es válido.");
                 return;
@@ -505,7 +532,7 @@ namespace recursosH
         public static void EliminarNaciente(int idNacienteAEliminar, int idRolUsuarioActual)
         {
             // Verificar permisos del usuario actual
-            var permisos = Validaciones.ObtenerPermisosPorRol(idRolUsuarioActual.ToString());
+            var permisos = Validaciones.ObtenerPermisosPorRol(idRolUsuarioActual);
             if (!permisos.Contains("delete"))
             {
                 MessageBox.Show("No tienes permisos para eliminar nacientes.");
@@ -538,14 +565,14 @@ namespace recursosH
         public static void EditarNaciente(Naciente nacienteEditado, int idRolUsuarioActual)
         {
             // Verificar permisos del usuario actual
-            var permisos = Validaciones.ObtenerPermisosPorRol(idRolUsuarioActual.ToString());
+            var permisos = Validaciones.ObtenerPermisosPorRol(idRolUsuarioActual);
             if (!permisos.Contains("update"))
             {
                 MessageBox.Show("No tienes permisos para editar nacientes.");
                 return;
             }
             // Validar los datos del naciente editado
-            if (!Validaciones.ValidarId(nacienteEditado.Id))
+            if (!Validaciones.ValidarEntero(nacienteEditado.Id))
             {
                 MessageBox.Show("Error: El ID del naciente no es válido.");
                 return;
@@ -575,22 +602,22 @@ namespace recursosH
                 MessageBox.Show("Error: La descripción del naciente no es válida.");
                 return;
             }
-            if (!Validaciones.ValidarId(nacienteEditado.Id_Entidad))
+            if (!Validaciones.ValidarEntero(nacienteEditado.Id_Entidad))
             {
                 MessageBox.Show("Error: El ID de la entidad no es válido.");
                 return;
             }
-            if (!Validaciones.ValidarId(nacienteEditado.Id_Distrito))
+            if (!Validaciones.ValidarEntero(nacienteEditado.Id_Distrito))
             {
                 MessageBox.Show("Error: El ID del distrito no es válido.");
                 return;
             }
-            if (!Validaciones.ValidarId(nacienteEditado.Id_Provincia))
+            if (!Validaciones.ValidarEntero(nacienteEditado.Id_Provincia))
             {
                 MessageBox.Show("Error: El ID de la provincia no es válido.");
                 return;
             }
-            if (!Validaciones.ValidarId(nacienteEditado.Id_Canton))
+            if (!Validaciones.ValidarEntero(nacienteEditado.Id_Canton))
             {
                 MessageBox.Show("Error: El ID del cantón no es válido.");
                 return;
@@ -630,14 +657,14 @@ namespace recursosH
         public static void GuardarMedicionDeCaudal(MedicionDeCaudal nuevaMedicionDeCaudal, int idRolUsuarioActual)
         {
             // Verificar permisos del usuario actual
-            var permisos = Validaciones.ObtenerPermisosPorRol(idRolUsuarioActual.ToString());
+            var permisos = Validaciones.ObtenerPermisosPorRol(idRolUsuarioActual);
             if (!permisos.Contains("create"))
             {
                 MessageBox.Show("No tienes permisos para crear mediciones de caudal.");
                 return;
             }
             // Validar los datos de la medición de caudal
-            if (!Validaciones.ValidarId(nuevaMedicionDeCaudal.Id))
+            if (!Validaciones.ValidarEntero(nuevaMedicionDeCaudal.Id))
             {
                 MessageBox.Show("Error: El ID de la medición de caudal no es válido.");
                 return;
@@ -672,12 +699,12 @@ namespace recursosH
                 MessageBox.Show("Error: El campo 'Realizado' de la medición de caudal no es válido.");
                 return;
             }
-            if (!Validaciones.ValidarId(nuevaMedicionDeCaudal.Id_SitioDeMuestreo))
+            if (!Validaciones.ValidarEntero(nuevaMedicionDeCaudal.Id_SitioDeMuestreo))
             {
                 MessageBox.Show("Error: El ID del sitio de muestreo no es válido.");
                 return;
             }
-            if (!Validaciones.ValidarId(nuevaMedicionDeCaudal.Id_Naciente))
+            if (!Validaciones.ValidarEntero(nuevaMedicionDeCaudal.Id_Naciente))
             {
                 MessageBox.Show("Error: El ID del naciente no es válido.");
                 return;
@@ -707,7 +734,7 @@ namespace recursosH
         public static void EliminarMedicionDeCaudal(int idMedicionDeCaudalAEliminar, int idRolUsuarioActual)
         {
             // Verificar permisos del usuario actual
-            var permisos = Validaciones.ObtenerPermisosPorRol(idRolUsuarioActual.ToString());
+            var permisos = Validaciones.ObtenerPermisosPorRol(idRolUsuarioActual);
             if (!permisos.Contains("delete"))
             {
                 MessageBox.Show("No tienes permisos para eliminar mediciones de caudal.");
@@ -740,14 +767,14 @@ namespace recursosH
         public static void EditarMedicionDeCaudal(MedicionDeCaudal medicionDeCaudalEditada, int idRolUsuarioActual)
         {
             // Verificar permisos del usuario actual
-            var permisos = Validaciones.ObtenerPermisosPorRol(idRolUsuarioActual.ToString());
+            var permisos = Validaciones.ObtenerPermisosPorRol(idRolUsuarioActual);
             if (!permisos.Contains("update"))
             {
                 MessageBox.Show("No tienes permisos para editar mediciones de caudal.");
                 return;
             }
             // Validar los datos de la medición de caudal editada
-            if (!Validaciones.ValidarId(medicionDeCaudalEditada.Id))
+            if (!Validaciones.ValidarEntero(medicionDeCaudalEditada.Id))
             {
                 MessageBox.Show("Error: El ID de la medición de caudal no es válido.");
                 return;
@@ -782,12 +809,12 @@ namespace recursosH
                 MessageBox.Show("Error: El campo 'Realizado' de la medición de caudal no es válido.");
                 return;
             }
-            if (!Validaciones.ValidarId(medicionDeCaudalEditada.Id_SitioDeMuestreo))
+            if (!Validaciones.ValidarEntero(medicionDeCaudalEditada.Id_SitioDeMuestreo))
             {
                 MessageBox.Show("Error: El ID del sitio de muestreo no es válido.");
                 return;
             }
-            if (!Validaciones.ValidarId(medicionDeCaudalEditada.Id_Naciente))
+            if (!Validaciones.ValidarEntero(medicionDeCaudalEditada.Id_Naciente))
             {
                 MessageBox.Show("Error: El ID del naciente no es válido.");
                 return;
